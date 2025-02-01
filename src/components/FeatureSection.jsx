@@ -10,7 +10,7 @@ const FeatureSection = () => {
         <div className='overflow-hidden md:h-full h-[50vh]'>
           <div 
             style={{
-              backgroundImage: "url('/images/Daniel.jpeg')",
+              backgroundImage: "url('/images/daniel.jpeg')",
               position: "relative"
             }} 
             className='hover:scale-105 w-full h-full transition-all duration-500 overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat'

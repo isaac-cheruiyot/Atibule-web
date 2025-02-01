@@ -1,20 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import { MdClose, MdMenu, MdSearch } from 'react-icons/md';
 import { GoArrowUpRight, GoChevronDown } from 'react-icons/go';
-import { Link, Links } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleDropdown = (index) => {
+    setOpenDropdown(openDropdown === index ? null : index);
+  };
+
+  const toggleHovered =(index)=>{
+    setHoveredIndex(!index)
+  }
 
   const navItems = [
     { name: 'Home', link: '/' },
-    { name: 'Why Atibule?', link: '/about' },
-    { name: 'Courses', link: '/courses', dropdown: ['Business', 'Leadership', 'IT and Digital Inclusion'] },
-    { name: 'Categories', link: '/categories', dropdown: ['For Kids', 'Church', 'Financial Education'] },
-    { name: 'For Kids', link: '/kids' },
-    { name: 'For Churches', link: '/church' },
-    { name: 'News', link: '/news' },
+    { 
+      name: 'Why Atibule?', 
+      link: '/about', 
+      desc: 'Atibule is a trusted hub for education, innovation, and personal growth, dedicated to equipping individuals with the skills and knowledge they need to excel in business, leadership, IT, and digital inclusion.'
+    },
+    { 
+      name: 'Courses', 
+      link: '/courses', 
+      desc: 'Explore our comprehensive range of courses designed to empower you with the knowledge and skills you need to succeed in business, leadership, technology, and digital inclusion.',
+      dropdown: [
+        { link: '/courses/business', title: "Business" }, 
+        { link: '/courses/leadership', title: 'Leadership' }, 
+        { link: '/courses/technology', title: 'Technology' }
+      ]
+    },
+    
+    { name: 'For Kids', link: '/kids', desc: 'Atibule offers a wide range of educational programs designed to inspire and engage children, from early childhood to adolescence, fostering their intellectual, emotional, and social development.' },
+    { name: 'For Churches', link: '/church-programs', desc: 'Atibule provides a variety of resources and programs designed to support and enhance the spiritual growth of church communities, including Bible studies, leadership training, and community outreach initiatives.' },
+    { name: 'Resources' ,
+      desc: 'Stay updated with the latest news and events from Atibule, including new course offerings, community events, and educational resources.' ,
+      dropdown:[
+        { link: '/resources/news', title: 'News' },
+        { link: '/resources/events', title: 'Events' },
+        { link: '/resources/resources', title: 'Resources' },
+        { link: '/resources/blog', title: 'Blog' },
+        {link: '/contact', title: 'Contact Us'}
+      ]
+    },
   ];
 
   // Detect scroll to change navbar background
@@ -28,41 +61,84 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`fixed top-0 left-0 border-b  px-8 w-full z-50 ${scrolling ? 'bg-white text-lime-900 border-b  border-lime-400 shadow' : 'border-white/50'}`}>
-      <div className="md:w-full mx-auto flex justify-between items-center py-4">
+    <div  className={`fixed top-0 left-0 border-b px-8 w-full z-50 ${scrolling ? 'bg-white text-lime-900 border-lime-400 shadow' : 'border-white/50'}`}>
+      <div  className="md:w-full onMouseLeave={()=>setHoveredIndex(null)} relative mx-auto flex justify-between items-center py-4">
         {/* Logo and Navigation */}
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-4">
-            <img
-              src={(scrolling ? '/atibule-fd-mn.png' : '/atibule-fl-mn.png')}
-              alt="Company Logo"
-              className="h-10 md:h-12 object-contain"
-            />
-            <hr className={`w-[1px] h-12 ${scrolling ? 'bg-lime-200 ' : 'bg-white/50'}`} />
+            <Link to="/">
+              <img
+                src={scrolling ? '/atibule-fd-mn.png' : '/atibule-fl-mn.png'}
+                alt="Company Logo"
+                className="h-10 md:h-12 object-contain"
+              />
+            </Link>
+            <hr className={`w-[1px] h-12 ${scrolling ? 'bg-lime-200' : 'bg-white/50'}`} />
           </div>
-          <div className="hidden md:flex items-center gap-8 relative">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
-              <div key={index} className="relative group">
+              <div key={index} onMouseEnter={() => setHoveredIndex(index)} className="group ">
                 <Link
                   to={item.link}
-                  className={`text-sm md:text-md font-semibold ${scrolling ? 'text-lime-900' : 'text-white'} hover:text-yellow-500 transition-colors flex items-center gap-2`}>
+                  onClick={()=>toggleHovered(index)}
+                  className={`text-sm md:text-md font-semibold ${scrolling ? 'text-lime-900' : 'text-white'} hover:text-yellow-500 transition-colors flex items-center gap-2`}
+                >
                   {item.name}
-                  {item.dropdown && <GoChevronDown className={`${scrolling ? 'text-lime-900' : 'text-white'}`} size={16} />}
                 </Link>
-                {/* Mega Menu for Courses Dropdown */}
-                {item.dropdown && (
-                  <div className="absolute hidden group-hover:block bg-white text-black shadow-md py-2 px-4 mt-2 rounded-md w-48">
-                    {item.dropdown.map((course, i) => (
-                      <Link
-                        to={`/${course.toLowerCase().replace(/ /g, '-')}`}
-                        key={i}
-                        className="block py-2 px-4 hover:bg-gray-100 transition-colors"
-                      >
-                        {course}
-                      </Link>
-                    ))}
+
+                {/* hovered effect */}
+                {hoveredIndex === index && index > 0 && (
+                  <div className={`${item.dropdown ? "grid-cols-3": "grid-cols-2"} shadow-custom flex absolute rounded-2xl p-8 md:grid  mt-8 w-full top-full bg-white left-0 flex-col gap-2 ${index === 1 ? 'border-r border-lime-400' : ''}`}>
+                    
+                   
+                  <div className='flex flex-col gap-2 border-r p-4 border-lime-400'>
+                    <h2 className='text-3xl font-semibold'>{item.name}</h2>
+                    <p className='text-sm'>{item.desc}</p>
+                  </div>
+                
+                {/* Show dropdown when hovered */}
+                
+                {item.dropdown && item.dropdown.length > 0 && (
+                  <div className="hidden group-hover:block p-4 bg-white text-black  py-4 px-6 mt-2 rounded-md">
+                    <div className="grid gap-4 grid-cols-2">
+                      {item.dropdown.map((dropdownItem, i) => {
+                        const link =
+                          typeof dropdownItem === 'object'
+                            ? dropdownItem.link
+                            : `/${dropdownItem.toLowerCase().replace(/ /g, '-')}`;
+                        const title =
+                          typeof dropdownItem === 'object'
+                            ? dropdownItem.title
+                            : dropdownItem;
+                        return (
+                          <Link
+                            to={link}
+                            key={i}
+                            onClick={()=>toggleHovered(index)}
+                            className=" border-l items-start flex justify-start border-gradient-to-b from-lime-400 to-lime-900 py-2 px-4 hover:bg-gray-100 transition-colors"
+                          >
+                            {title}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
+
+                {/* colum 3 */}
+                <div className='bg-lime-400 h-full w-full'>
+
+                </div>
+                  </div>
+                )}
+
+
+
+                <div>
+
+                {/* Show dropdown when hovered */}
+                
+                </div>
               </div>
             ))}
           </div>
@@ -76,7 +152,10 @@ const Navbar = () => {
           >
             <MdSearch size={28} />
           </button>
-          <Link to="/apply" className={`text-sm  hidden   md:flex ${scrolling ? 'bg-lime-900 hover:text-yellow-500' : 'hover:bg-white hover:text-lime-900'} items-center gap-2 border-2 border-white px-4 py-2 rounded-md md:text-md font-semibold text-white transition-colors`}>
+          <Link
+            to="/general/apply"
+            className={`text-sm hidden md:flex ${scrolling ? 'bg-lime-900 hover:text-yellow-500' : 'hover:bg-white hover:text-lime-900'} items-center gap-2 border-2 border-white px-4 py-2 rounded-md md:text-md font-semibold text-white transition-colors`}
+          >
             Apply Now
             <GoArrowUpRight size={16} />
           </Link>
@@ -86,37 +165,62 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-0 h-screen left-0 w-full bg-white text-lime-900 shadow-lg ">
+        
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-0 h-screen left-0 w-full bg-white text-lime-900 shadow-lg">
             <div className="flex justify-between items-center border-b border-lime-400 pb-4 p-6">
               <img src="/atibule-fd-mn.png" alt="Company Logo" className="h-6 md:h-10 object-contain" />
               <button onClick={() => setIsMobileMenuOpen(false)} className="text-white transition-colors">
-                <MdClose size={32} className='text-lime-900' />
+                <MdClose size={32} className="text-lime-900" />
               </button>
             </div>
-            <div className='h-8 border-b border-lime-400'></div>
-            <div className="flex flex-col items-start gap-4 ">
+            <div className="h-8 border-b border-lime-400"></div>
+            <div className="flex flex-col items-start gap-4">
               {navItems.map((item, index) => (
-                <div className='w-full border-b border-lime-400' key={index}>
+                <div key={index} className="w-full border-b border-lime-400">
                   {item.dropdown ? (
-                    <div className="relative border-b  border-lime-400 w-full text-center">
-                      <button className="text-lg font-semibold">{item.name}</button>
-                      <div className="bg-gray-100 p-2 rounded-md mt-2">
-                        {item.dropdown.map((course, i) => (
-                          <Link
-                            to={`/${course.toLowerCase().replace(/ /g, '-')}`}
-                            key={i}
-                            className="block py-2 px-4 hover:bg-gray-200 transition-colors"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {course}
-                          </Link>
-                        ))}
-                      </div>
+                    <div className="w-full">
+                      <button
+                        onClick={() => toggleDropdown(index)}
+                        className="w-full text-lg font-semibold flex justify-between items-center px-4 py-2"
+                      >
+                        {item.name}
+                        <GoChevronDown size={16} />
+                      </button>
+                      {openDropdown === index && (
+                        <div className="bg-gray-100 rounded-md mt-2">
+                          {item.dropdown.map((dropdownItem, i) => {
+                            const link =
+                              typeof dropdownItem === 'object'
+                                ? dropdownItem.link
+                                : `/${dropdownItem.toLowerCase().replace(/ /g, '-')}`;
+                            const title =
+                              typeof dropdownItem === 'object'
+                                ? dropdownItem.title
+                                : dropdownItem;
+                            return (
+                              <Link
+                                to={link}
+                                key={i}
+                                className="block py-2 px-4 hover:bg-gray-200 transition-colors"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {title}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   ) : (
-                    <Link to={item.link} className="text-lg font-semibold" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Link
+                      to={item.link}
+                      className="text-lg font-semibold px-4 py-2 block"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
                       {item.name}
                     </Link>
                   )}
@@ -125,7 +229,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-      </div>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import Testimonials from '../components/Testimonials';
 import Accreditation from '../components/Accreditation';
 import BlogPage from '../components/Blog';
 import FetchCourses from '../components/FetchCourses';
+import SchoolsSection from '../components/Schools/SchoolsSection';
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("business"); // Default value is lowercase
@@ -27,6 +28,7 @@ const Home = () => {
       <div className='px-8 md:px-20'>
       <FetchCourses category={selectedCategory} /> {/* Pass selected category to FetchCourse */}
       </div>
+      <SchoolsSection />
       <AboutSection />
       <Features />
       <Testimonials />
