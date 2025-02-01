@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import FetchCourses from '../components/fetchCourses'
+import FetchCourses from '../components/FetchCourses'
 
 const AllCoursesPage = () => {
   const [courses, setCourses] = useState([])

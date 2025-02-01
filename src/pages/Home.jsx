@@ -6,8 +6,8 @@ import BlogSection from '../components/BlogSection';
 import Features from '../components/FeatureSection';
 import Testimonials from '../components/Testimonials';
 import Accreditation from '../components/Accreditation';
-import FetchCourses from '../components/fetchCourses';
 import BlogPage from '../components/Blog';
+import FetchCourses from '../components/FetchCourses';
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("business"); // Default value is lowercase
