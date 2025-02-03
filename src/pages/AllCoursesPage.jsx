@@ -12,7 +12,7 @@ const AllCoursesPage = () => {
 
   return (
     <div>
-      <div className="w-full h-20 bg-lime-900"></div>
+      <div className="w-full h-20 bg-[#365314]"></div>
       <div className="w-4/5 mx-auto h-full py-8">
         <h2 className="text-lg mb-4 font-bold">Courses for You</h2>
         <div className="mb-6">

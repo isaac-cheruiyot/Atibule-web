@@ -52,8 +52,8 @@ const News = () => {
             onClick={() => setSelectedCategory(cat)}
             className={`px-4 py-2 border rounded-md transition-colors ${
               selectedCategory === cat
-                ? 'bg-lime-500 text-white'
-                : 'bg-white text-lime-500 hover:bg-lime-100'
+                ? 'bg-[#84cc16] text-white'
+                : 'bg-white text-[#84cc16] hover:bg-[#ecfccb]'
             }`}
           >
             {cat}

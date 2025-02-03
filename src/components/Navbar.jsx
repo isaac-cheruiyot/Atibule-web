@@ -61,7 +61,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div  className={`fixed top-0 left-0 border-b px-8 w-full z-50 ${scrolling ? 'bg-white text-lime-900 border-lime-400 shadow' : 'border-white/50'}`}>
+    <div  className={`fixed top-0 left-0 border-b px-8 w-full z-50 ${scrolling ? 'bg-white text-[#365314] border-[#a3e635 shadow' : 'border-white/50'}`}>
       <div  className="md:w-full onMouseLeave={()=>setHoveredIndex(null)} relative mx-auto flex justify-between items-center py-4">
         {/* Logo and Navigation */}
         <div className="flex items-center gap-8">
@@ -73,7 +73,7 @@ const Navbar = () => {
                 className="h-10 md:h-12 object-contain"
               />
             </Link>
-            <hr className={`w-[1px] h-12 ${scrolling ? 'bg-lime-200' : 'bg-white/50'}`} />
+            <hr className={`w-[1px] h-12 ${scrolling ? 'bg-[#d9f99d]' : 'bg-white/50'}`} />
           </div>
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
@@ -81,17 +81,17 @@ const Navbar = () => {
                 <Link
                   to={item.link}
                   onClick={()=>toggleHovered(index)}
-                  className={`text-sm md:text-md font-semibold ${scrolling ? 'text-lime-900' : 'text-white'} hover:text-yellow-500 transition-colors flex items-center gap-2`}
+                  className={`text-sm md:text-md font-semibold ${scrolling ? 'text-[#365314]' : 'text-white'} hover:text-yellow-500 transition-colors flex items-center gap-2`}
                 >
                   {item.name}
                 </Link>
 
                 {/* hovered effect */}
                 {hoveredIndex === index && index > 0 && (
-                  <div className={`${item.dropdown ? "grid-cols-3": "grid-cols-2"} shadow-custom flex absolute rounded-2xl p-8 md:grid  mt-8 w-full top-full bg-white left-0 flex-col gap-2 ${index === 1 ? 'border-r border-lime-400' : ''}`}>
+                  <div className={`${item.dropdown ? "grid-cols-3": "grid-cols-2"} shadow-custom flex absolute rounded-2xl p-8 md:grid  mt-8 w-full top-full bg-white left-0 flex-col gap-2 ${index === 1 ? 'border-r border-[#a3e635' : ''}`}>
                     
                    
-                  <div className='flex flex-col gap-2 border-r p-4 border-lime-400'>
+                  <div className='flex flex-col gap-2 border-r p-4 border-[#a3e635'>
                     <h2 className='text-3xl font-semibold'>{item.name}</h2>
                     <p className='text-sm'>{item.desc}</p>
                   </div>
@@ -115,7 +115,7 @@ const Navbar = () => {
                             to={link}
                             key={i}
                             onClick={()=>toggleHovered(index)}
-                            className=" border-l items-start flex justify-start border-gradient-to-b from-lime-400 to-lime-900 py-2 px-4 hover:bg-gray-100 transition-colors"
+                            className=" border-l items-start flex justify-start border-gradient-to-b from-[#a3e635 to-[#365314] py-2 px-4 hover:bg-gray-100 transition-colors"
                           >
                             {title}
                           </Link>
@@ -126,7 +126,7 @@ const Navbar = () => {
                 )}
 
                 {/* colum 3 */}
-                <div className='bg-lime-400 h-full w-full'>
+                <div className='bg-[#a3e635 h-full w-full'>
 
                 </div>
                   </div>
@@ -148,13 +148,13 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <button
             aria-label="Search"
-            className={`text-md font-semibold ${scrolling ? 'text-lime-900' : 'text-white'} hover:text-yellow-500`}
+            className={`text-md font-semibold ${scrolling ? 'text-[#365314]' : 'text-white'} hover:text-yellow-500`}
           >
             <MdSearch size={28} />
           </button>
           <Link
             to="/general/apply"
-            className={`text-sm hidden md:flex ${scrolling ? 'bg-lime-900 hover:text-yellow-500' : 'hover:bg-white hover:text-lime-900'} items-center gap-2 border-2 border-white px-4 py-2 rounded-md md:text-md font-semibold text-white transition-colors`}
+            className={`text-sm hidden md:flex ${scrolling ? 'bg-[#365314] hover:text-yellow-500' : 'hover:bg-white hover:text-[#365314]'} items-center gap-2 border-2 border-white px-4 py-2 rounded-md md:text-md font-semibold text-white transition-colors`}
           >
             Apply Now
             <GoArrowUpRight size={16} />
@@ -170,17 +170,17 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-0 h-screen left-0 w-full bg-white text-lime-900 shadow-lg">
-            <div className="flex justify-between items-center border-b border-lime-400 pb-4 p-6">
+          <div className="md:hidden absolute top-0 h-screen left-0 w-full bg-white text-[#365314] shadow-lg">
+            <div className="flex justify-between items-center border-b border-[#a3e635 pb-4 p-6">
               <img src="/atibule-fd-mn.png" alt="Company Logo" className="h-6 md:h-10 object-contain" />
               <button onClick={() => setIsMobileMenuOpen(false)} className="text-white transition-colors">
-                <MdClose size={32} className="text-lime-900" />
+                <MdClose size={32} className="text-[#365314]" />
               </button>
             </div>
-            <div className="h-8 border-b border-lime-400"></div>
+            <div className="h-8 border-b border-[#a3e635"></div>
             <div className="flex flex-col items-start gap-4">
               {navItems.map((item, index) => (
-                <div key={index} className="w-full border-b border-lime-400">
+                <div key={index} className="w-full border-b border-[#a3e635">
                   {item.dropdown ? (
                     <div className="w-full">
                       <button

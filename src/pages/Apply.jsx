@@ -61,7 +61,7 @@ const Apply = () => {
           {/* Optional: Button to download course brochure */}
           <div className="flex  justify-center">
             <button
-              className="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-700 transition"
+              className="bg-[#84cc16] text-white px-6 py-3 rounded-lg hover:bg-[#4d7c0f] transition"
             >
               Download Brochure
             </button>

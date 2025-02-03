@@ -89,7 +89,7 @@ const BlogDetail = () => {
       </div>
 
       <div className="back-button mt-6">
-        <a href={`/blog/${category}`} className="text-lime-500 inline-block">
+        <a href={`/blog/${category}`} className="text-[#84cc16] inline-block">
           Back to {category} blogs
         </a>
       </div>

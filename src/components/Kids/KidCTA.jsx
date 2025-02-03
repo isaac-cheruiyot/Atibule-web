@@ -2,7 +2,7 @@ import React from 'react'
 
 const KidCTA = () => {
   return (
-    <div className='h-[40vh] bg-lime-900 relative'>
+    <div className='h-[40vh] bg-[#365314] relative'>
         <div  style={{ backgroundImage: `url('/images/stripped.png')`, opacity:'20%' }} className='absolute top-0 left-0 w-full z-5 h-full bg-cover bg-center'></div>
         <div     className='w-full grid z-10 items-center bg-opacity-20 h-full relative bg-cover bg-center'>
         <div className='w-5/6 mx-auto r flex flex-col items-center space-y-4'>

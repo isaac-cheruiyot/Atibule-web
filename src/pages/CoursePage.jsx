@@ -18,10 +18,10 @@ const CoursePage = () => {
       try {
         setLoading(true);
         setError(null);
-
+  
         const courseRef = doc(db, "courses", id);
         const courseSnap = await getDoc(courseRef);
-
+  
         if (courseSnap.exists()) {
           setCourse({ id: courseSnap.id, ...courseSnap.data() });
         } else {
@@ -34,9 +34,11 @@ const CoursePage = () => {
         setLoading(false);
       }
     };
-
+  
     fetchCourse();
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on component mount
   }, [id]);
+  
 
   if (loading) return <div className="text-center grid items-center bg-gray-500 h-screen mb-10">
     <p className='font-bold text-white'>Loading course...</p></div>;
@@ -47,7 +49,7 @@ const formattedPrice = course.price
 ? new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(course.price)
 : "Not Available";
   return (
-    <div>
+    <div id='course-top'>
         <div style={{ backgroundImage: `url(${course.image})` }} className="relative min-h-screen bg-cover bg-center">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -68,42 +70,43 @@ const formattedPrice = course.price
         </div>
 
         {/* Right Side - Buttons */}
-        <div className="grid grid-cols-2 items-start  md:py-20 gap-4">
+        <div className="grid md:grid-cols-2 items-start  md:py-20 gap-4">
           <Link to={`/apply/${course.id}`}>
-          <button className="bg-lime-500 hover:bg-lime-700 transition text-xl text-white px-6 py-4 rounded-lg w-full md:w-auto">
+          <button className="bg-[#84cc16] hover:bg-[#4d7c0f] transition text-xl text-white px-6 py-4 rounded-lg w-full md:w-auto">
             Enroll Now
           </button>
           </Link>
-          <button className="bg-white text-lime-900 border border-lime-900 text-xl hover:bg-gray-200 transition px-6 py-4 rounded-lg w-full md:w-auto">
+          <button className="bg-white text-[#365314] border border-[#365314] text-xl hover:bg-gray-200 transition px-6 py-4 rounded-lg w-full md:w-auto">
             Download Brochure
           </button>
         </div>
       </div>
       </div>
       
-      <div className='py-20'> 
-        <div className=' bg-lime-500 rounded-2xl md:w-11/12 mx-auto h-[60vh] px-8 py-16 grid grid-cols-3 gap-20 '>
-        <div className='col-span-2 space-y-8'>
-        <h1 className='text-4xl text-white tracking-wider  leading-snug font-bold'>Why learn {course.title}  at ATIBULE?</h1>  
+      <div className='py-20 px-4 md:px-0'> 
+        <div className=' bg-[#84cc16] rounded-2xl md:w-11/12  mx-auto md:h-[60vh] px-8 py-16 grid grid-cols-1 md:grid-cols-3 gap-20 '>
+        <div className='md:col-span-2 space-y-8'>
+        <h1 className='md:text-4xl text-2xl text-white tracking-wider  leading-snug font-bold'>Why learn {course.title}  at ATIBULE?</h1>  
         <p className='text-md text-white/90'>Join the leader in Online TVET technology education in Africa and join the largest community of experts.
         </p>
-        <button className='bg-white justify-center flex items-center gap-2 w-3/4 text-lime-900 border border-lime-900 text-md hover:bg-gray-200 transition px-6 py-2 rounded-lg  '>
+        <button className='bg-white justify-center flex items-center gap-2 w-full md:w-3/4 text-[#365314] border border-[#365314] text-md hover:bg-gray-200 transition px-6 py-2 rounded-lg  '>
             Download Brochure <GoArrowDown />
         </button>
         </div>
-        <div className='col-span-1 flex text-white flex-col justify-between'>
-            <span>
+
+        <div className='col-span-1 grid md:flex gap-4 text-white  items-center md:items-start flex-col justify-center md:justify-between'>
+            <div id='1' className='border-b md:border-none'>
                 <h2 className='text-5xl font-bold'>#1</h2>
                 <p> Online Digital TVET in Africa </p>
-            </span>
-            <span>
+            </div>
+            <div id='2' className='border-b md:border-none'>
                 <h2 className='text-5xl font-bold'>85%</h2>
                 <p> Employment and Startup rate upon completing a ATIBULE</p>
-            </span>
-            <span>
+            </div>
+            <div id='3' className='border-b md:border-none'>
                 <h2 className='text-5xl font-bold'>5+</h2>
                 <p> Internationally Recognized Certification </p>
-            </span>
+            </div>
         </div>
         </div>
       </div>

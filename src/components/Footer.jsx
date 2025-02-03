@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className='bg-lime-200'>
+    <footer className='bg-[#d9f99d]'>
       <div className="w-5/6 mx-auto px-4 sm:px-6">
 
         {/* Top area: Blocks */}
@@ -104,7 +104,7 @@ function Footer() {
         </div>
 
         {/* Bottom area */}
-        <div className="md:flex  md:items-center md:justify-between py-4 md:pt-20 md:pb-12 border-t border-lime-400">
+        <div className="md:flex  md:items-center md:justify-between py-4 md:pt-20 md:pb-12 border-t border-[#a3e635">
         {/* 1st block */}
         <div className="sm:col-span-12 lg:col-span-3">
             <div className="mb-2">
@@ -146,7 +146,7 @@ function Footer() {
           </ul>
 
           {/* Copyrights note */}
-          <div className="text-sm mt-8 text-gray-600 mr-4">© 2025 <a className="text-lime-600 hover:underline" href="https://atibule.com/">atibule, </a>. All rights reserved.</div>
+          <div className="text-sm mt-8 text-gray-600 mr-4">© 2025 <a className="text-[#65a30d] hover:underline" href="https://atibule.com/">atibule, </a>. All rights reserved.</div>
 
         {/* 3rd block */}
         

@@ -4,7 +4,7 @@ import { MdPlayArrow } from 'react-icons/md';
 const FeatureSection = () => {
   return (
     <div className='w-full px-4'>
-      <div className="w-[95%] mx-auto overflow-hidden rounded-2xl bg-lime-300 grid grid-cols-1 md:grid-cols-2 md:h-[85vh]">
+      <div className="w-[95%] mx-auto overflow-hidden rounded-2xl bg-[#bef264] grid grid-cols-1 md:grid-cols-2 md:h-[85vh]">
         
         {/* Left Side - Video/Image Section */}
         <div className='overflow-hidden md:h-full h-[50vh]'>
@@ -16,7 +16,7 @@ const FeatureSection = () => {
             className='hover:scale-105 w-full h-full transition-all duration-500 overflow-hidden flex items-center justify-center bg-cover bg-center bg-no-repeat'
           >
             <div className='bg-white rounded-full p-2'>
-              <MdPlayArrow size={80} className='text-lime-950' />
+              <MdPlayArrow size={80} className='text-[#1a2e05]' />
             </div>
           </div>
         </div>
@@ -35,20 +35,20 @@ const FeatureSection = () => {
 
           {/* Stats Grid */}
           <div className='w-full grid grid-cols-2 gap-6'>
-            <div className='border-l-4 border-lime-950 pl-4'>
-              <h1 className='md:text-4xl text-2xl font-bold text-lime-950'>95%</h1>
+            <div className='border-l-4 border-[#1a2e05] pl-4'>
+              <h1 className='md:text-4xl text-2xl font-bold text-[#1a2e05]'>95%</h1>
               <p className='text-lg text-gray-800'>Job Readiness</p>
             </div>
-            <div className='border-l-4 border-lime-950 pl-4'>
-              <h1 className='md:text-4xl text-2xl font-bold text-lime-950'>24/7</h1>
+            <div className='border-l-4 border-[#1a2e05] pl-4'>
+              <h1 className='md:text-4xl text-2xl font-bold text-[#1a2e05]'>24/7</h1>
               <p className='md:text-lg text-sm   text-gray-800'>Learning Access</p>
             </div>
-            <div className='border-l-4 border-lime-950 pl-4'>
-              <h1 className='md:text-4xl text-2xl font-bold text-lime-950'>50+</h1>
+            <div className='border-l-4 border-[#1a2e05] pl-4'>
+              <h1 className='md:text-4xl text-2xl font-bold text-[#1a2e05]'>50+</h1>
                 <p className='md:text-lg text-sm   text-gray-800'>Courses & certfications</p>
             </div>
-            <div className='border-l-4 border-lime-950 pl-4'>
-              <h1 className='md:text-4xl text-2xl font-bold text-lime-950'>90%</h1>
+            <div className='border-l-4 border-[#1a2e05] pl-4'>
+              <h1 className='md:text-4xl text-2xl font-bold text-[#1a2e05]'>90%</h1>
               <p className='md:text-lg text-sm   text-gray-800'>Certification Success</p>
             </div>
           </div>

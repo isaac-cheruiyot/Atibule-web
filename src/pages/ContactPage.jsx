@@ -25,7 +25,7 @@ const ContactPage = () => {
               <label htmlFor="message" className='text-gray-500'>Message</label>
               <textarea type="text" rows={5} required placeholder='Message' className='w-full p-2 rounded-md border border-gray-300' />
             </div>
-            <button type="submit" className='w-1/4 p-2 rounded-md bg-lime-900 text-white'>Submit</button>
+            <button type="submit" className='w-1/4 p-2 rounded-md bg-[#365314] text-white'>Submit</button>
         </form>
       </div>
 
@@ -36,7 +36,7 @@ const ContactPage = () => {
           <div className='flex flex-col gap-2 md:grid md:grid-cols-3'>
             <p className='text-gray-500 flex items-center md:border-b-2 md:border-gray-300 gap-2'><FaEnvelope /> Email: <span className='text-gray-500'>info@atibule.com</span></p>
             <p className='text-gray-500 flex items-center md:border-b-2 md:border-gray-300  gap-2'><FaPhone /> Phone: <span className='text-gray-500'>+254 114266430</span></p>
-            <p className='text-gray-500 flex items-center md:border-b-2 md:border-gray-300 gap-2'><FaWhatsapp /> Whatsapp: <span className='text-gray-500'>+254 114266430</span></p>
+            <p className='text-gray-500  flex items-center md:border-b-2 md:border-gray-300 gap-2'><FaWhatsapp /> Whatsapp: <span className='text-gray-500'>+254 114266430</span></p>
           </div>
         </div>
       </div>

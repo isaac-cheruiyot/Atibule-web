@@ -53,7 +53,7 @@ const Blog = ({ category }) => {
             />
             <h2 className="text-xl font-semibold mt-3">{blog.title}</h2>
             <p className="text-gray-700 mt-2 line-clamp-3">{blog.content}</p>
-            <a href={`/blog/${blog.category}/${blog.id}`} className="text-lime-500 mt-4 inline-block">
+            <a href={`/blog/${blog.category}/${blog.id}`} className="text-[#84cc16] mt-4 inline-block">
               Read more
             </a>
           </div>

@@ -49,7 +49,7 @@ const SchoolsSection = () => {
                     <button 
                       onMouseEnter={() => setHoveredIndex(index)} 
                       onMouseLeave={() => setHoveredIndex(null)} 
-                      className='hover:bg-lime-400 transition-all duration-800 bg-lime-900 text-white px-4 py-2 rounded-full flex items-center gap-2'
+                      className='hover:bg-[#a3e635 transition-all duration-800 bg-[#365314] text-white px-4 py-2 rounded-full flex items-center gap-2'
                     >
                       {hoveredIndex === index ? (
                         <>

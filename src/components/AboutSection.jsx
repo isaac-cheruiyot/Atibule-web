@@ -62,7 +62,7 @@ const AboutSection = () => {
             <h2
               key={index}
               className={`text-xl p-2 border-r border-gray-300 text-center flex items-center gap-2 font-semibold cursor-pointer transition-all duration-300 
-              ${active === index ? "bg-lime-900 text-white" : "text-gray-700"}`}
+              ${active === index ? "bg-[#365314] text-white" : "text-gray-700"}`}
               onClick={() => setActive(index)}
             >
               <span className="md:text-md text-sm border border-white/80 rounded-full p-2">{tab.icon}</span>
@@ -79,12 +79,12 @@ const AboutSection = () => {
             <div className='flex flex-col gap-2'>
                 {tabs[active].features.map((feature, index) => (
                     <div key={index} className='flex items-center gap-2 px-6'>
-                        <FaCheckCircle className='text-lime-900'/>
-                        <span className='text-lime-800'>{feature}</span>
+                        <FaCheckCircle className='text-[#365314]'/>
+                        <span className='text-[#3f6212]'>{feature}</span>
                     </div>
                 ))}
             </div>
-            <button className="bg-lime-500 text-white px-4 py-2 rounded-lg">Learn More</button>
+            <button className="bg-[#84cc16] text-white px-4 py-2 rounded-lg">Learn More</button>
           </div>
           <div className="md:flex hidden p-4 items-center justify-center">
             {/* Placeholder for image or graphic */}

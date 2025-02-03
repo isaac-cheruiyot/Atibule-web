@@ -36,7 +36,7 @@ const Testimonials = () => {
 
   return (
     <div className='py-20 relative '>
-      <p className='text-center text-sm bg-lime-300 font-bold w-36 py-1 rounded-2xl mx-auto'>Our Testimonials</p>
+      <p className='text-center text-sm bg-[#bef264] font-bold w-36 py-1 rounded-2xl mx-auto'>Our Testimonials</p>
       <h2 className='text-4xl md:mb-4 mb-2  font-serif text-center'>What Our Students Are Saying?</h2>
       
       {/* Background */}

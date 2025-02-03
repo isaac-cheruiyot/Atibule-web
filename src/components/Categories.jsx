@@ -56,7 +56,7 @@ const Categories = ({ selectedCategory, onCategorySelect }) => {
           new field, we offer the perfect program for you.
         </p>
         <div className="flex md:flex-row md:w-3/4 mx-auto flex-col md:justify-center justify-start items-start md:items-center md:gap-12 gap-2 mt-4">
-          <span className="text-sm md:text-base md:border px-4 py-2 border-lime-800 rounded-md text-lime-800 flex items-center gap-2">
+          <span className="text-sm md:text-base md:border px-4 py-2 border-[#3f6212] rounded-md text-[#3f6212] flex items-center gap-2">
             <GoClock size={16} /> 4 Weeks to 12 Months
           </span>
           <span className="text-sm md:text-base md:border px-4 py-2 border-orange-500 rounded-md text-orange-500 flex items-center gap-2">
@@ -75,7 +75,7 @@ const Categories = ({ selectedCategory, onCategorySelect }) => {
             key={index}
             className={`flex  gap-2 items-center border rounded-md px-2 py-1 cursor-pointer ${
               category.title === selectedCategory
-                ? "bg-lime-500 text-white"
+                ? "bg-[#84cc16] text-white"
                 : "bg-white text-gray-800"
             }`}
             onClick={() => onCategorySelect(category.title)} // Trigger the onCategorySelect function passed from Home

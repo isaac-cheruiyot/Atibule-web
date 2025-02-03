@@ -63,7 +63,7 @@ const FetchCourses = ({ category }) => {
               <h2 className='text-xs border border-gray-300 px-2 py-1 rounded-lg text-gray-500'>{course.level}</h2>
             </span>
             <p className='text-sm line-clamp-5 text-gray-500'>{course.description}</p>
-            <Link to={`/courses/${course.category}/${course.id}`} className='bg-black hover:bg-cyan-800 w-full text-white px-4 py-2 rounded-lg text-center block'>
+            <Link to={`/courses/${course.category}/${course.id}/#course-top`} className='bg-black hover:bg-cyan-800 w-full text-white px-4 py-2 rounded-lg text-center block'>
               View Course
             </Link>
           </div>
