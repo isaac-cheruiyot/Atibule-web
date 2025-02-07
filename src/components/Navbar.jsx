@@ -4,19 +4,16 @@ import { GoArrowUpRight, GoChevronDown } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 
 
-const Navbar = () => {
+const Navbar = ({toggleHovered, hoveredIndex}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const toggleDropdown = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
   };
 
-  const toggleHovered =(index)=>{
-    setHoveredIndex(!index)
-  }
+ 
 
   const navItems = [
     { name: 'Home', link: '/' },

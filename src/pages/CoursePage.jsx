@@ -50,7 +50,7 @@ const formattedPrice = course.price
 : "Not Available";
   return (
     <div id='course-top'>
-        <div style={{ backgroundImage: `url(${course.image})` }} className="relative min-h-screen bg-cover bg-center">
+        <div style={{ backgroundImage: `url(${course.image})` }} className="relative  bg-cover bg-center">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
 

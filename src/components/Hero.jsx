@@ -26,7 +26,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row gap-4">
           <a
             href="/courses"
-            className="bg-[#a3e635 hover:bg-[#ecfccb] text-white text-lg font-medium py-3 px-6 rounded-lg shadow-lg transition duration-300"
+            className="bg-[#a3e635] hover:bg-[#008800]  text-black/90 hover:text-white text-lg font-medium py-3 px-6 rounded-lg shadow-lg transition duration-300"
           >
             Explore Courses
           </a>

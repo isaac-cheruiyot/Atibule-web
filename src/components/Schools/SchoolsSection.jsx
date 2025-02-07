@@ -30,7 +30,7 @@ const SchoolsSection = () => {
   }, []);
 
   return (
-    <div className="p-6 w-11/12">
+    <div className="p-6 w-11/12 mx-auto">
       <h2 className="text-2xl font-bold mb-4">Schools</h2>
 
       {loading ? (

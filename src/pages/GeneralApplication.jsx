@@ -2,7 +2,7 @@ import React from 'react';
 
 const GeneralApplication = () => {
   return (
-    <div className=" min-h-screen">
+    <div className=" ">
       <div className='w-full  bg-[#365314] h-[40vh]'></div>
       <div className='w-full px-4 md:px-0 flex justify-center items-center translate-y-[-15vh]'>
       <iframe 

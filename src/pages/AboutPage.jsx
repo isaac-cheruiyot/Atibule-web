@@ -5,7 +5,7 @@ const AboutPage = () => {
   return (
     <div>
       {/* Background Hero Section */}
-      <div className='min-h-[120vh] w-screen bg-cover bg-gra bg-center' style={{ backgroundImage: `url('/about-bg.svg')` }}>
+      <div className='h-[120vh] w-screen bg-cover bg-gra bg-center' style={{ backgroundImage: `url('/about-bg.svg')` }}>
         <div className='w-full h-full bg-gradient-to-b from-black/50 via-transparent to-transparent  absolute top-0 left-0'></div>
         <div className='w-5/6 mx-auto flex flex-col items-center pt-40 py-8 space-y-10 h-full'>
           <h2 className='text-white text-center text-4xl md:text-6xl font-bold'>
@@ -31,6 +31,31 @@ const AboutPage = () => {
             <p className=' text-xl text-center'>At Atibule, we are dedicated to providing high-quality education and training programs that empower individuals to achieve their career goals and improve their quality of life.</p>
           </div>
         </div>
+        </div>
+
+        <div className='w-5/6 border-l-4 my-4 rounded-r-xl opacity-80 -translate-y-1/2 md:-translate-y-full bg-[#9dcd5d] border-[#008800] px-4 py-4 mx-auto'>
+            <h2 className='text-2xl font-bold'>Our Vision</h2>
+            <p className='text-lg'>Our vision is to become the leading online educational platform in Africa, recognized for transforming lives through accessible, innovative, and accredited training programs. We strive to foster a community of forward-thinking professionals who drive economic and social progress across the continent and beyond.</p>
+        </div>
+
+        <div className='w-5/6 border-l-4 my-4 rounded-r-xl opacity-80 -translate-y-20 md:-translate-y-20 px-4 py-4 mx-auto'>
+          <h2 className='text-2xl  font-bold'>Our Core Values</h2>
+          <p className='text-lg'>
+            <ul className='grid grid-cols-1 md:grid-cols-2 gap-4 list-inside'>
+              <li className='text-lg bg-[#9dcd5d] rounded-xl p-4'>
+                <h2 className='text-2xl font-bold'>1.Innovation</h2>
+                <p className='text-lg'>We embrace new ideas and technologies to improve our services and meet the evolving needs of our learners.</p>
+              </li>
+              <li className='text-lg bg-[#9dcd5d] rounded-xl p-4'>
+                <h2 className='text-2xl font-bold'>2. Excellence</h2>
+                <p className='text-lg'>We are committed to delivering the highest standards of education and training, ensuring that our learners receive the best possible experience.</p>
+              </li>
+              <li className='text-lg bg-[#9dcd5d] rounded-xl p-4'>
+                <h2 className='text-2xl font-bold'>3.Inclusivity</h2>
+                <p className='text-lg'>We believe in the power of education to break down barriers and create opportunities for everyone.</p>
+              </li>
+            </ul>
+          </p>
         </div>
 
         {/* CTA Section */}
