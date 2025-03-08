@@ -13,6 +13,8 @@ import ChurchProgrammesPage from './pages/ChurchProgrammesPage'
 import BlogDetail from './pages/BlogDetail'
 import News from './pages/News'
 import GeneralApplication from './pages/GeneralApplication'
+import SchoolPage from './pages/SchoolPage'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -31,7 +33,9 @@ function App() {
           <Route path="kids" element={<Kids />} />
           <Route path="church-programs" element={<ChurchProgrammesPage />} />
           <Route path='/blog' element={<News/>} />
+          <Route path='/schools/:id' element={<SchoolPage/>}/>
           <Route path='/blog/:category/:id' element={<BlogDetail />} />
+          <Route path='*'  element={<NotFound/>}/>
         </Route>
       </Routes>
     </Router>

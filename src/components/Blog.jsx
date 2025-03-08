@@ -42,7 +42,7 @@ const Blog = ({ category }) => {
   if (blogs.length === 0) return <div className="text-gray-600">No blogs found in this category.</div>;
 
   return (
-    <div className="blog-page w-5/6 mx-auto">
+    <div className="blog-page  mx-auto">
       <div className="blog-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {blogs.map((blog) => (
           <div key={blog.id} className="blog-item border p-4 rounded-md shadow-md">
