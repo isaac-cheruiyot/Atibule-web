@@ -6,6 +6,10 @@ import { FaBook, FaClock, FaDownload, FaPercent, FaStar } from 'react-icons/fa6'
 import { FaPercentage } from 'react-icons/fa';
 import { GoArrowDown, GoArrowDownLeft } from 'react-icons/go';
 import Modules from '../components/Modules';
+import { BsGraphUpArrow, BsPercent } from "react-icons/bs";
+import { IoBookOutline } from 'react-icons/io5';
+import { CiClock2 } from 'react-icons/ci';
+
 
 const CoursePage = () => {
   const { id } = useParams();
@@ -49,39 +53,73 @@ const formattedPrice = course.price
 ? new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(course.price)
 : "Not Available";
   return (
-    <div id='course-top'>
-        <div style={{ backgroundImage: `url(${course.image})` }} className="relative  bg-cover bg-center">
+    <div id='course-top pt-20'>
+      <div style={{ backgroundImage: `url(${course.image})` }} className="relative h-[70vh]  mx-auto mt-20  overflow-hidden bg-cover bg-center">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
+     
+     <div className='absolute w-1/2 text-white space-y-8 p-8 left-8 bottom-10'>
+      <h1 className="text-4xl  font-bold">{course.title}</h1>
+      <p className="text-lg">{course.description}</p>
 
-      <div className="relative w-11/12 md:w-4/5 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-40 text-white">
-        {/* Left Side - Course Details */}
-        <div className="flex flex-col justify-start space-y-4">
-          <h1 className="text-4xl font-bold">{course.title}</h1>
-          <p className="text-lg">{course.description}</p>
-          <h2 className='text-4xl font-bold'><span className='text-orange-500'> KES {formattedPrice}</span></h2>
-
-          <div className='flex flex-col space-y-4'>
-            <h2 className=' flex items-center gap-2'><FaBook /> <span className='text-orange-500'>{course.modeOfLearning}</span></h2>
-            <h2 className=' flex items-center gap-2 '><FaClock /> <span className='text-orange-500'>{course.duration}</span></h2>
-            <h2 className=' flex items-center gap-2 '><FaStar /> <span className='text-orange-500'>{course.level}</span></h2>
-            <h2 className=' flex items-center gap-2 '><FaPercentage /> <span className='text-orange-500'>Self Paced</span></h2>
-          </div>
-        </div>
-
-        {/* Right Side - Buttons */}
-        <div className="grid md:grid-cols-2 items-start  md:py-20 gap-4">
-          <Link to={`/apply/${course.id}`}>
-          <button className="bg-[#84cc16] hover:bg-[#4d7c0f] transition text-xl text-white px-6 py-4 rounded-lg w-full md:w-auto">
-            Enroll Now
-          </button>
-          </Link>
-          <button className="bg-white text-[#365314] border border-[#365314] text-xl hover:bg-gray-200 transition px-6 py-4 rounded-lg w-full md:w-auto">
-            Download Brochure
-          </button>
-        </div>
+      <div className='flex gap-8 items-center'>
+      <h2 className='text-3xl font-bold'><span className='text-orange-500'> Kes {formattedPrice}</span></h2>
+      <Link to={`/apply/${course.id}`}>
+      <button className="bg-[#84cc16] hover:bg-[#4d7c0f] transition text-xl text-white px-6 py-3 rounded-sm w-full md:w-auto">
+      Enroll Now
+      </button>
+      </Link>
       </div>
       </div>
+
+      
+      </div>
+
+      {/* card for basic info */}
+      <div className='bg-lime-100'>
+        <div className="grid grid-cols-4 shadow gap-4 items-center border border-gray-300 rounded-lg h-20 mx-4 -translate-y-1/2 bg-white">
+  <h2 className="flex justify-center py-2 text-xl font-light items-center gap-2 border-r border-gray-300">
+    <IoBookOutline className="text-gray-500" /> 
+    <span className="text-gray-600">{course.modeOfLearning}</span>
+  </h2>
+  <h2 className="flex items-center gap-2 border-r py-2 border-gray-300">
+  <CiClock2 size={20}  className="text-gray-500" /> 
+    <span className="text-gray-600">{course.duration}</span>
+  </h2>
+  <h2 className="flex items-center gap-2 border-r py-2 border-gray-300">
+    <BsGraphUpArrow  className="text-gray-500" /> 
+    <span className="text-gray-600">{course.level}</span>
+  </h2>
+  <h2 className="flex items-center gap-2 py-2">
+  <BsPercent  className="text-gray-500" /> 
+    <span className="text-gray-600">Self Paced</span>
+  </h2>
+</div>
+</div>
+
+{/* collumn of skills and requirements */}
+ <div className='bg-lime-100 py-4  gap-8 '>
+    <div className='w-11/12 mx-auto grid grid-cols-2 py-8'>
+    {/* skill learned */}
+    <div>
+      <h2>Skills you'll learn:</h2>
+      <ul className='flex flex-wrap'>
+        <li></li>
+      </ul>
+    </div>
+    {/* prerequisites */}
+    <div>
+      <h2>Requirements:</h2>
+      <ul className='flex flex-wrap'>
+        <li></li>
+      </ul>
+    </div>
+    </div>
+ </div>
+
+     
+
+      <hr className='w-full bg-[#787878]'/>
       
       <div className='py-20 px-4 md:px-0'> 
         <div className=' bg-[#84cc16] rounded-2xl md:w-11/12  mx-auto md:h-[60vh] px-8 py-16 grid grid-cols-1 md:grid-cols-3 gap-20 '>

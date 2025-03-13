@@ -15,6 +15,8 @@ import News from './pages/News'
 import GeneralApplication from './pages/GeneralApplication'
 import SchoolPage from './pages/SchoolPage'
 import NotFound from './pages/NotFound'
+import PageNav from './components/PageNav'
+import PageLayout from './layout/PageLayout'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          </Route>
+          <Route path='/' element={<PageLayout/>} >
           <Route path="courses" element={<AllCoursesPage />} />
           <Route path="courses/:category/" element={<AllCoursesPage />} />
           <Route path="courses" element={<AllCoursesPage />} />
